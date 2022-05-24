@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Shopping Cart Dem1</title>
+    <style>
+        body{
+            background-color: #fff;
+        }
+        .main-container {
+  max-width: 1200px;
+  height: auto;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2.7fr 1.3fr;
+}
+
+.section {
+  /* border: 1px solid green; */
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+}
+
+/* ------------------- Product ------------------- */
+
+.section-title {
+  text-align: center;
+  margin-left: 0.3em;
+  margin-right: 0.3em;
+  border-bottom: 2px solid rgb(182, 175, 175);
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.product {
+  border: 2.8px solid rgba(0, 0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5em;
+  padding: 0.8em 0.4em;
+  width: 32%;
+}
+
+.product:hover {
+  border: 2.8px solid rgb(182, 175, 175);
+  transition: 0.5s;
+}
+
+.product-name {
+  width: 100%;
+  border-bottom: 2px solid rgb(182, 175, 175);
+  text-align: center;
+}
+
+.product-price::before {
+  content: "$ ";
+}
+
+.product img {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+}
+
+.btn {
+  padding: 0.6em 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid rgb(85, 85, 85);
+  color: rgb(70, 62, 62);
+}
+
+:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: rgb(182, 175, 175);
+}
+
+.btn-primary:hover {
+  border: 2px solid rgb(180, 149, 99);
+  transition: 0.3s;
+  background: none;
+}
+
+/* ------------------- Cart ------------------- */
+
+.cart {
+  font-style: italic;
+  font-weight: lighter;
+  display: grid;
+}
+
+/* .cart-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px dashed rgb(148, 142, 142);
+} */
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 2em 2em 5em auto 0.2em auto auto;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border-bottom: 2px dashed rgb(148, 142, 142);
+}
+
+.cart-item-image {
+  width: 50px;
+  height: 50px;
+}
+
+.cart-item-name {
+  font-size: 0.8em;
+}
+
+.cart-item-price::before {
+  content: "$ ";
+}
+
+.btn-small {
+  padding: 0.2em 0.6em;
+}
+
+.cart-footer {
+  text-align: center;
+}
+
+.cart-footer-total {
+  font-size: 1.2em;
+}
+
+.cart-footer-total::before {
+  content: "Total: $ ";
+}
+
+    </style>
+  </head>
+  <body>
+    <main class="main-container">
+      <section class="section">
+        <h2 class="section-title">All Products</h2>
+        <div class="products">
+          <div class="product">
+            <img class="product-image" src="images clo/img15.jpg" alt="" />
+            <h2 class="product-name">Green Jumpsuit</h2>
+            <h3 class="product-price">400</h3>
+            <button class="btn btn-primary" data-action="add-to-cart">
+              Add To Cart
+            </button>
+          </div>
+          <div class="product">
+            <img class="product-image" src="pgimg/img6.jpeg" alt="" />
+            <h2 class="product-name">Peach Lehenga</h2>
+            <h3 class="product-price">500</h3>
+            <button class="btn btn-primary" data-action="add-to-cart">
+              Add To Cart
+            </button>
+          </div>
+          <div class="product">
+            <img class="product-image" src="pgimg/img1.jpg" alt=""
+            />
+            <h2 class="product-name">Neck Chain-2</h2>
+            <h3 class="product-price">300</h3>
+            <button class="btn btn-primary" data-action="add-to-cart">
+              Add To Cart
+            </button>
+          </div>
+          <div class="product">
+            <img class="product-image" src="pgimg/img11.jpg" alt="" />
+            <h2 class="product-name">Light pink Pants</h2>
+            <h3 class="product-price">500</h3>
+            <button class="btn btn-primary" data-action="add-to-cart">
+              Add To Cart
+            </button>
+          </div>
+          <div class="product">
+            <img class="product-image" src="images clo/img16.png" alt="" />
+            <h2 class="product-name">Formal Set</h2>
+            <h3 class="product-price">700</h3>
+            <button class="btn btn-primary" data-action="add-to-cart">
+              Add To Cart
+            </button>
+          </div>
+          <div class="product">
+            <img class="product-image" src="pgimg/img4.jpg" alt="" />
+            <h2 class="product-name">Pink-Brown Gown</h2>
+            <h3 class="product-price">800</h3>
+            <button class="btn btn-primary" data-action="add-to-cart">
+              Add To Cart
+            </button>
+          </div>
+          <div class="product">
+            <img class="product-image" src="pgimg/img5.jpg" alt="" />
+            <h2 class="product-name">Neck Chain-3</h2>
+            <h3 class="product-price">300</h3>
+            <button class="btn btn-primary" data-action="add-to-cart">
+              Add To Cart
+            </button>
+          </div>
+          <div class="product">
+            <img class="product-image" src="pgimg/img12.jpg" alt="" />
+            <h2 class="product-name">White Pants</h2>
+            <h3 class="product-price">1000</h3>
+            <button class="btn btn-primary" data-action="add-to-cart">
+              Add To Cart
+            </button>
+          </div>
+          <div class="product">
+            <img class="product-image" src="images clo/img11.jpg" alt="" />
+            <h2 class="product-name"H&M Dress></h2>
+            <h3 class="product-price">1000</h3>
+            <button class="btn btn-primary" data-action="add-to-cart">
+              Add To Cart
+            </button>
+          </div>
+          <div class="product">
+            <img class="product-image" src="pgimg/img7.jpg" alt="" />
+            <h2 class="product-name">Green Lehenga</h2>
+            <h3 class="product-price">1500</h3>
+            <button class="btn btn-primary" data-action="add-to-cart">
+              Add To Cart
+            </button>
+          </div>
+          <div class="product">
+            <img class="product-image" src="pgimg/img2.jpg" alt="" />
+            <h2 class="product-name">Pendant</h2>
+            <h3 class="product-price">600</h3>
+            <button class="btn btn-primary" data-action="add-to-cart">
+              Add To Cart
+            </button>
+          </div>
+          <div class="product">
+            <img class="product-image" src="pgimg/img13.jpg" alt="" />
+            <h2 class="product-name">Denim Skirt</h2>
+            <h3 class="product-price">1000</h3>
+            <button class="btn btn-primary" data-action="add-to-cart">
+              Add To Cart
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <h2 class="section-title">Cart</h2>
+        <div class="cart">
+          <!-- <div class="cart-item">
+            <img class="cart-item-image" src="img/cookie.jpg" alt="cookie" />
+            <h2 class="cart-item-name">Cookie</h2>
+            <h3 class="cart-item-price">3.00</h3>
+            <button class="btn btn-primary btn-small" data-action="decrease-item">
+              &minus;
+            </button>
+            <h3 class="cart-item-quantity">1</h3>
+            <button class="btn btn-primary btn-small" data-action="increase-item">
+              &plus;
+            </button>
+            <button class="btn btn-primary btn-small" data-action="remove-item">
+              &times;
+            </button>
+          </div> -->
+        </div>
+        <!-- <div class="cart-footer">
+          <h2 class="cart-footer-total" data-action="total-price">1</h2>
+          <button class="btn btn-primary btn-small btn-danger" data-action="clear-cart">Clear Cart</button>
+          <button class="btn btn-primary btn-small btn-danger" data-action="checkout">Checkout</button>
+        </div> -->
+      </section>
+    </main>
+  </body>
+  <script>
+      "use strict";
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+const cartDOM = document.querySelector(".cart");
+const addToCartButtonsDOM = document.querySelectorAll(
+  '[data-action="add-to-cart"]'
+);
+
+if (cart.length > 0) {
+  cart.forEach(cartItem => {
+    const product = cartItem;
+    insertItemToDOM(product);
+    countCartTotal();
+
+    addToCartButtonsDOM.forEach(addToCartButtonDOM => {
+      const productDOM = addToCartButtonDOM.parentNode;
+
+      if (
+        productDOM.querySelector(".product-name").innerText === product.name
+      ) {
+        handleActionButtons(addToCartButtonDOM, product);
+      }
+    });
+  });
+}
+
+addToCartButtonsDOM.forEach(addToCartButtonDOM => {
+  addToCartButtonDOM.addEventListener("click", () => {
+    const productDOM = addToCartButtonDOM.parentNode;
+    const product = {
+      image: productDOM.querySelector(".product-image").getAttribute("src"),
+      name: productDOM.querySelector(".product-name").innerText,
+      price: productDOM.querySelector(".product-price").innerText,
+      quantity: 1
+    };
+
+    cart.forEach(cartItem => {
+      console.log(cartItem.quantity, cartItem.price);
+    });
+
+    const isInCart =
+      cart.filter(cartItem => cartItem.name === product.name).length > 0;
+
+    if (!isInCart) {
+      insertItemToDOM(product);
+      cart.push(product);
+      saveCart();
+      handleActionButtons(addToCartButtonDOM, product);
+    }
+  });
+});
+
+function insertItemToDOM(product) {
+  cartDOM.insertAdjacentHTML(
+    "beforeend",
+    `
+    <div class="cart-item">
+        <img class="cart-item-image" src="${product.image}" alt="${
+      product.name
+    }" />
+        <h2 class="cart-item-name">${product.name}</h2>
+        <h3 class="cart-item-price">${product.price}</h3>
+        <button class="btn btn-primary btn-small" data-action="decrease-item">
+        &minus;
+        </button>
+        <h3 class="cart-item-quantity">${product.quantity}</h3>
+        <button class="btn btn-primary btn-small" data-action="increase-item">
+        &plus;
+        </button>
+        <button class="btn btn-primary btn-small" data-action="remove-item">
+        &times;
+        </button>
+    </div>
+    `
+  );
+
+  addCartFooter();
+}
+
+function handleActionButtons(addToCartButtonDOM, product) {
+  addToCartButtonDOM.innerText = "In Cart";
+  addToCartButtonDOM.disabled = true;
+
+  const cartItemsDOM = cartDOM.querySelectorAll(".cart-item");
+  cartItemsDOM.forEach(cartItemDOM => {
+    if (
+      cartItemDOM.querySelector(".cart-item-name").innerText === product.name
+    ) {
+      cartItemDOM
+        .querySelector('[data-action="increase-item"]')
+        .addEventListener("click", () => increaseItem(product, cartItemDOM));
+      cartItemDOM
+        .querySelector('[data-action="decrease-item"]')
+        .addEventListener("click", () =>
+          decreaseItem(product, cartItemDOM, addToCartButtonDOM)
+        );
+      cartItemDOM
+        .querySelector('[data-action="remove-item"]')
+        .addEventListener("click", () =>
+          removeItem(product, cartItemDOM, addToCartButtonDOM)
+        );
+    }
+  });
+}
+
+function increaseItem(product, cartItemDOM) {
+  cart.forEach(cartItem => {
+    if (cartItem.name === product.name) {
+      cartItemDOM.querySelector(
+        ".cart-item-quantity"
+      ).innerText = ++cartItem.quantity;
+      saveCart();
+    }
+  });
+}
+
+function decreaseItem(product, cartItemDOM, addToCartButtonDOM) {
+  cart.forEach(cartItem => {
+    if (cartItem.name === product.name) {
+      if (cartItem.quantity > 1) {
+        cartItemDOM.querySelector(
+          ".cart-item-quantity"
+        ).innerText = --cartItem.quantity;
+        saveCart();
+      } else {
+        removeItem(product, cartItemDOM, addToCartButtonDOM);
+      }
+    }
+  });
+}
+
+function removeItem(product, cartItemDOM, addToCartButtonDOM) {
+  cartItemDOM.remove();
+  cart = cart.filter(cartItem => cartItem.name !== product.name);
+  saveCart();
+  addToCartButtonDOM.innerText = "Add to Cart";
+  addToCartButtonDOM.disabled = false;
+
+  if (cart.length < 1) {
+    document.querySelector(".cart-footer").remove();
+  }
+}
+
+function addCartFooter() {
+  if (document.querySelector(".cart-footer") === null) {
+    cartDOM.insertAdjacentHTML(
+      "afterend",
+      `
+        <div class="cart-footer">
+          <h2 class="cart-footer-total" data-action="total-price">0</h2>
+          <button class="btn btn-primary btn-small btn-danger" data-action="clear-cart">Clear Cart</button>
+          <button class="btn btn-primary btn-small btn-danger" data-action="checkout">Checkout</button>
+        </div>
+        `
+    );
+
+    document
+      .querySelector('[data-action="clear-cart"]')
+      .addEventListener("click", () => clearCart());
+    document
+      .querySelector('[data-action="checkout"]')
+      .addEventListener("click", () => checkout());
+  }
+}
+
+function clearCart() {
+  cartDOM.querySelectorAll(".cart-item").forEach(cartItemDOM => {
+    cartItemDOM.remove();
+  });
+
+  cart = [];
+  localStorage.removeItem("cart");
+  document.querySelector(".cart-footer").remove();
+  addToCartButtonsDOM.forEach(addToCartButtonDOM => {
+    addToCartButtonDOM.innerText = "Add To Cart";
+    addToCartButtonDOM.disabled = false;
+  });
+}
+
+function checkout() {
+  alert("Thank you for your purchase!");
+  cart = [];
+  localStorage.removeItem("cart");
+  location.reload();
+}
+
+function countCartTotal() {
+  let cartTotal = 0;
+  cart.forEach(cartItem => (cartTotal += cartItem.quantity * cartItem.price));
+  document.querySelector(
+    '[data-action="total-price"]'
+  ).innerText = `${cartTotal.toFixed(2)}`;
+}
+
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+  countCartTotal();
+}
+  </script>
+</html>
